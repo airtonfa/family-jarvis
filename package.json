@@ -1,0 +1,22 @@
+{
+  "name": "family-jarvis",
+  "version": "1.0.0",
+  "description": "Family planning hub - school sync, calendar mirror, Notion integration",
+  "main": "index.js",
+  "scripts": {
+    "school-sync": "node src/school-scraper.js",
+    "calendar-sync": "node src/calendar-mirror.js",
+    "test": "node src/test.js"
+  },
+  "dependencies": {
+    "playwright": "^1.40.0",
+    "@notionhq/client": "^2.2.0",
+    "googleapis": "^118.0.0",
+    "dotenv": "^16.3.1",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

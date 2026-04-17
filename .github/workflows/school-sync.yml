@@ -1,0 +1,30 @@
+name: School Sync (6pm daily)
+
+on:
+  schedule:
+    - cron: '0 21 * * *'
+  workflow_dispatch:
+
+jobs:
+  school-sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run school scraper
+        env:
+          ESBSP_LOGIN: ${{ secrets.ESBSP_LOGIN }}
+          ESBSP_PASSWORD: ${{ secrets.ESBSP_PASSWORD }}
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+        run: npm run school-sync
