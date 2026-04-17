@@ -4,7 +4,7 @@ const { Client } = require('@notionhq/client');
 const axios = require('axios');
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
-const ESBSP_URL = 'https://extranet.esbsp.aesb.com.br/';
+const ESBSP_URL = 'https://extranet.escola-suica.com.br/';
 const GRADES_DB_ID = '627f0599-e7f8-40b1-bfb1-f8d6027b5579';
 const EXAMS_DB_ID = 'bab4a1bc-70e3-46de-b6bb-95b29bf6aab4';
 
